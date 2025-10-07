@@ -335,7 +335,7 @@ function generateOfflinePage() {
         </button>
         <div class="contact-info">
           <p><strong>Телефон:</strong> <a href="tel:+380637027770">+380 63 702 77 70</a></p>
-          <p><strong>Адреса:</strong> вул. Дерибасівська, 1, Одеса</p>
+          <p><strong>Адреса:</strong> вул. Шевченка, 15, Жмеринка</p>
         </div>
       </div>
     </body>

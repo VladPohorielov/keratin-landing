@@ -5,6 +5,15 @@ const state = { data: null, activeLengths: {} };
 const $ = (sel, root=document) => root.querySelector(sel);
 const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
 
+// Header height management for sticky and scroll-padding
+function setHeaderVar(){
+  const h = document.querySelector('.site-header');
+  const val = (h?.offsetHeight || 72) + 'px';
+  document.documentElement.style.setProperty('--header-h', val);
+}
+window.addEventListener('resize', setHeaderVar, { passive: true });
+document.addEventListener('DOMContentLoaded', setHeaderVar);
+
 async function loadContent(){
   const res = await fetch('content.json');
   state.data = await res.json();
@@ -170,7 +179,8 @@ function buildAbout(){
   const title = $('#aboutTitle');
   const body = $('#aboutBody');
   
-  if(photo) photo.src = a.photo;
+  // Використовуємо нове фото майстра
+  if(photo) photo.src = 'assets/images/master.png';
   if(title) title.textContent = a.title;
   if(body && a.html) {
     // sanitize HTML
@@ -203,31 +213,92 @@ function buildSEO(){
   });
 }
 
-function buildGallery(){
-  const grid = $('#galleryGrid');
-  if(!grid) return;
-  grid.innerHTML = '';
-  state.data.gallery.items.forEach(item=>{
-    const div = document.createElement('div');
-    div.className = 'masonry-item reveal-up';
-    if(item.type==='image'){
-      div.innerHTML = `<img src="${item.src}" alt="${item.alt || ''}" loading="lazy" decoding="async" width="400" height="600">`;
-    } else {
-      div.innerHTML = `<video src="${item.src}" ${item.poster?`poster="${item.poster}"`:''} controls muted preload="metadata" width="400" height="600"></video>`;
-    }
-    grid.appendChild(div);
+let galleryState = { tag: 'Усі', page: 1, perPageMobile: 8 };
+
+function buildGalleryFilters(){
+  const nav = document.getElementById('galleryNav');
+  if(!nav) return;
+  const items = state.data.gallery.items || [];
+  const tags = ['Усі', ...Array.from(new Set(items.map(i=>i.tag).filter(Boolean)))];
+  nav.innerHTML = '';
+  tags.forEach(tag=>{
+    const b = document.createElement('button');
+    b.className = 'filter-chip' + (tag===galleryState.tag ? ' is-active':'' );
+    b.type='button'; b.textContent = tag; b.setAttribute('role','tab'); b.setAttribute('aria-selected', tag===galleryState.tag ? 'true':'false');
+    b.addEventListener('click', ()=>{
+      galleryState.tag = tag; galleryState.page = 1;
+      buildGalleryGrid(); buildGalleryFilters(); window.location.hash = `tag=${encodeURIComponent(tag)}`;
+      
+      // прокрутка до початку галереї з урахуванням header
+      const gal = document.getElementById('gallery');
+      const top = gal.getBoundingClientRect().top + window.scrollY;
+      const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72;
+      window.scrollTo({ top: top - headerH - 6, behavior: 'smooth' });
+    });
+    nav.appendChild(b);
   });
 }
 
+function buildGalleryGrid(){
+  const grid = document.getElementById('galleryGrid');
+  grid.innerHTML = '';
+  const all = state.data.gallery.items || [];
+  const filtered = galleryState.tag==='Усі' ? all : all.filter(i=>i.tag===galleryState.tag);
+
+  // пагінація на мобільних
+  const isMobile = matchMedia('(max-width: 700px)').matches;
+  const sliceEnd = isMobile ? galleryState.page * galleryState.perPageMobile : filtered.length;
+  const toShow = filtered.slice(0, sliceEnd);
+
+  toShow.forEach(item=>{
+    const div = document.createElement('div');
+    div.className = 'masonry-item reveal-up';
+    if(item.type==='image'){
+      div.innerHTML = `<img src="${item.src}" alt="${item.alt||''}" loading="lazy" decoding="async" width="${item.w||1200}" height="${item.h||900}">`;
+    } else {
+      div.innerHTML = `<video src="${item.src}" ${item.poster?`poster="${item.poster}"`:''} preload="metadata" controls playsinline></video>`;
+    }
+    grid.appendChild(div);
+  });
+
+  // кнопка Показати ще
+  let btn = document.querySelector('.show-more');
+  btn?.remove();
+  if (isMobile && sliceEnd < filtered.length){
+    btn = document.createElement('button');
+    btn.className = 'show-more';
+    btn.textContent = 'Показати ще';
+    btn.addEventListener('click', ()=>{ galleryState.page += 1; buildGalleryGrid(); });
+    grid.after(btn);
+  }
+}
+
+function buildGallery(){
+  // розбір hash
+  const m = location.hash.match(/tag=([^&]+)/);
+  if(m) galleryState.tag = decodeURIComponent(m[1]);
+  buildGalleryFilters();
+  buildGalleryGrid();
+}
+
 function buildTestimonials(){
-  const car = $('#testimonialsCarousel');
-  car.innerHTML='';
+  const car = document.getElementById('testimonialsCarousel');
+  if(!car || !state.data.testimonials) return;
+  car.innerHTML = '';
   state.data.testimonials.forEach(t=>{
     const el = document.createElement('article');
-    el.className = 'review reveal-up';
-    el.innerHTML = `<div class="name">${t.name}</div>
-      <div class="stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
-      <p>${t.text}</p>`;
+    el.className = 'testimonial-slide';
+    el.innerHTML = `
+      <div class="review">
+        <div class="review-head">
+          <div class="avatar" aria-hidden="true">★</div>
+          <div>
+            <div class="name">${t.name}</div>
+            <div class="stars" aria-label="Оцінка: ${t.rating} з 5">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}</div>
+          </div>
+        </div>
+        <p class="review-text">${t.text}</p>
+      </div>`;
     car.appendChild(el);
   });
 }

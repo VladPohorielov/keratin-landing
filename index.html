@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="uk" data-theme="dark">
+<html lang="uk" data-theme="dark" style="scroll-padding-top: var(--header-h, 72px);">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>KERATIN STUDIO — Одеса | Кератин, Ботокс, Нанопластика</title>
+    <title>KERATIN STUDIO — Жмеринка | Кератин, Ботокс, Нанопластика</title>
     <meta
       name="description"
-      content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Одесі. Сертифіковані майстри, безпечні склади, реальні результати. Запис онлайн."
+      content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Жмеринці. Сертифіковані майстри, безпечні склади, реальні результати. Запис онлайн."
     />
 
     <!-- SEO & Social Meta -->
     <meta
       property="og:title"
-      content="KERATIN STUDIO — Одеса | Кератин, Ботокс, Нанопластика"
+      content="KERATIN STUDIO — Жмеринка | Кератин, Ботокс, Нанопластика"
     />
     <meta
       property="og:description"
-      content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Одесі. Сертифіковані майстри, безпечні склади, реальні результати."
+      content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Жмеринці. Сертифіковані майстри, безпечні склади, реальні результати."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://keratin-studio-odesa.com" />
@@ -26,10 +26,10 @@
     />
     <meta property="og:locale" content="uk_UA" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="KERATIN STUDIO — Одеса" />
+    <meta name="twitter:title" content="KERATIN STUDIO — Жмеринка" />
     <meta
       name="twitter:description"
-      content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Одесі."
+      content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Жмеринці."
     />
     <meta
       name="twitter:image"
@@ -259,12 +259,12 @@
         "@type": "LocalBusiness",
         "@id": "https://keratin-studio-odesa.com",
         "name": "KERATIN STUDIO",
-        "description": "Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Одесі",
+        "description": "Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Жмеринці",
         "url": "https://keratin-studio-odesa.com",
         "telephone": "+380637027770",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Одеса",
+          "addressLocality": "Жмеринка",
           "addressCountry": "UA"
         },
         "geo": {
@@ -451,7 +451,14 @@
       <section id="about" class="section container about">
         <div class="about-grid">
           <figure class="about-media">
-            <img id="aboutPhoto" alt="Майстер — Альона Бурдовська" width="900" height="1200" loading="lazy" decoding="async">
+            <img
+              id="aboutPhoto"
+              alt="Майстер — Альона Бурдовська"
+              width="900"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
           <article class="about-content">
             <h2 id="aboutTitle">Про майстра</h2>
@@ -491,6 +498,9 @@
           <h2 id="gallery-heading">До / Після • Фото &amp; Відео</h2>
           <p>Реальні роботи майстра. Натисніть, щоб збільшити.</p>
         </div>
+        
+        <div class="gallery-nav" id="galleryNav" role="tablist" aria-label="Фільтр прикладів робіт"></div>
+        
         <div
           class="masonry"
           id="galleryGrid"
@@ -500,20 +510,25 @@
       </section>
 
       <!-- Testimonials -->
-      <section
-        id="testimonials"
-        class="section container"
-        aria-labelledby="testimonials-heading"
-      >
+      <section id="testimonials" class="section container">
         <div class="section-head reveal-up">
-          <h2 id="testimonials-heading">Відгуки клієнток</h2>
+          <h2>Відгуки клієнток</h2>
+          <p class="muted">Реальні історії про кератин, ботокс і нанопластику у Жмеринці та околицях.</p>
         </div>
-        <div
-          class="carousel"
-          id="testimonialsCarousel"
-          role="list"
-          aria-label="Відгуки клієнтів"
-        ></div>
+
+        <div class="testimonial-wrap">
+          <div class="testimonial-viewport" aria-roledescription="carousel">
+            <div class="testimonial-container" id="testimonialsCarousel" aria-live="polite" aria-atomic="true">
+              <!-- buildTestimonials() рендерить .testimonial-slide -->
+            </div>
+          </div>
+
+          <div class="testimonial-controls">
+            <button class="btn ghost testimonial-prev" aria-label="Попередній відгук">‹</button>
+            <div class="testimonial-dots" role="tablist" aria-label="Пагінація відгуків"></div>
+            <button class="btn ghost testimonial-next" aria-label="Наступний відгук">›</button>
+          </div>
+        </div>
       </section>
 
       <!-- Certificates -->
@@ -663,12 +678,12 @@
             <div class="logo" id="brandNameFooter">KERATIN STUDIO</div>
             <p class="muted">© <span id="year"></span>. Усі права захищено.</p>
           </div>
-          
+
           <div class="footer-col">
             <h4>Контакти</h4>
             <div id="footerContacts"></div>
           </div>
-          
+
           <div class="footer-col">
             <h4>Швидкі посилання</h4>
             <nav role="navigation" aria-label="Додаткова навігація">
@@ -679,7 +694,7 @@
               <a href="#contact">Контакти</a>
             </nav>
           </div>
-          
+
           <div class="footer-col">
             <h4>Соцмережі</h4>
             <div id="footerSocial"></div>
@@ -777,6 +792,40 @@
           );
         }
       });
+    </script>
+
+    <!-- Embla Carousel for Testimonials -->
+    <script type="module">
+      import EmblaCarousel from "https://cdn.jsdelivr.net/npm/embla-carousel@8.0.0/embla-carousel.esm.js";
+      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const viewport = document.querySelector('.testimonial-viewport');
+      if (viewport){
+        const embla = EmblaCarousel(viewport, { loop:true, align:'center', containScroll:'trimSnaps' });
+        const dots = document.querySelector('.testimonial-dots');
+        const prevBtn = document.querySelector('.testimonial-prev');
+        const nextBtn = document.querySelector('.testimonial-next');
+        function renderDots(){
+          dots.innerHTML = '';
+          embla.scrollSnapList().forEach((_, i)=>{
+            const b = document.createElement('button');
+            b.type='button'; b.className='dot'; b.setAttribute('aria-label',`Перейти до відгуку ${i+1}`);
+            b.addEventListener('click', ()=> embla.scrollTo(i));
+            dots.appendChild(b);
+          });
+        }
+        function setActive(){ const s=embla.selectedScrollSnap(); [...dots.children].forEach((d,i)=>d.classList.toggle('is-active',i===s)); }
+        embla.on('init', ()=>{ renderDots(); setActive(); });
+        embla.on('select', setActive);
+        prevBtn?.addEventListener('click', ()=> embla.scrollPrev());
+        nextBtn?.addEventListener('click', ()=> embla.scrollNext());
+        // автоплей з паузами
+        let id=null; const start=()=>{ if(prefersReduced) return; stop(); id=setInterval(()=>embla.scrollNext(), 3500); };
+        const stop=()=>{ if(id) clearInterval(id); id=null; };
+        viewport.addEventListener('mouseenter', stop);
+        viewport.addEventListener('mouseleave', start);
+        document.addEventListener('visibilitychange', ()=> document.hidden?stop():start());
+        embla.on('init', start);
+      }
     </script>
   </body>
 </html>

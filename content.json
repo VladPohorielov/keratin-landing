@@ -8,7 +8,7 @@
     "whatsapp": "https://wa.me/380637027770",
     "telegram": "https://t.me/keratin_studio_odesa",
     "instagram": "https://instagram.com/keratin_studio_odesa",
-    "address": "вул. Дерибасівська, 1, Одеса",
+    "address": "вул. Шевченка, 15, Жмеринка",
     "coordinates": {
       "lat": 46.4825,
       "lng": 30.7233
@@ -135,14 +135,16 @@
         "src": "assets/images/before-after-1.jpg",
         "srcWebp": "assets/images/before-after-1.webp",
         "alt": "До і після кератинового вирівнювання - довге волосся",
-        "category": "keratin"
+        "category": "keratin",
+        "tag": "До/Після"
       },
       {
         "type": "image",
         "src": "assets/images/before-after-2.jpg",
         "srcWebp": "assets/images/before-after-2.webp",
         "alt": "Результат ботоксу для волосся - відновлення блиску",
-        "category": "botox"
+        "category": "botox",
+        "tag": "До/Після"
       },
       {
         "type": "video",
@@ -151,28 +153,32 @@
         "poster": "assets/images/ba-clip-1.jpg",
         "posterWebp": "assets/images/ba-clip-1.webp",
         "alt": "Відео процесу нанопластики",
-        "category": "nanoplastic"
+        "category": "nanoplastic",
+        "tag": "Відео"
       },
       {
         "type": "image",
         "src": "assets/images/before-after-3.jpg",
         "srcWebp": "assets/images/before-after-3.webp",
         "alt": "Кератинове вирівнювання на кучерявому волоссі",
-        "category": "keratin"
+        "category": "keratin",
+        "tag": "Довге"
       },
       {
         "type": "image",
         "src": "assets/images/before-after-4.jpg",
         "srcWebp": "assets/images/before-after-4.webp",
         "alt": "Ботокс для тонкого волосся - збільшення об'єму",
-        "category": "botox"
+        "category": "botox",
+        "tag": "Коротке"
       },
       {
         "type": "image",
         "src": "assets/images/before-after-5.jpg",
         "srcWebp": "assets/images/before-after-5.webp",
         "alt": "Нанопластика на середньому волоссі",
-        "category": "nanoplastic"
+        "category": "nanoplastic",
+        "tag": "Середнє"
       }
     ]
   },
@@ -244,7 +250,7 @@
     "name": "Альона Бурдовська",
     "html": "<p>Мене звати <strong>Альона Бурдовська</strong>. Спеціалізуюся на кератині, ботоксі, холодному відновленні та нанопластиці. Працюю делікатно, з сертифікованими складами, результат — без фільтрів.</p><p>Приймаю у Жмеринці та околицях, можливий виїзд майстра. Допомагаю обрати процедуру під ваш тип волосся та спосіб життя.</p>",
     "education": [
-      "Базова освіта: Одеський коледж технологій та дизайну",
+      "Базова освіта: Жмеринський коледж технологій та дизайну",
       "Спеціалізація: Keratherapy International",
       "Сертифікат: Brazilian Keratin Treatment",
       "Курси: NanoPlastia Advanced Techniques"
