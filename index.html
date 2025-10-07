@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="uk" data-theme="dark" style="scroll-padding-top: var(--header-h, 72px);">
+<html
+  lang="uk"
+  data-theme="dark"
+  style="scroll-padding-top: var(--header-h, 72px)"
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,10 +23,10 @@
       content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Жмеринці. Сертифіковані майстри, безпечні склади, реальні результати."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://keratin-studio-odesa.com" />
+    <meta property="og:url" content="https://keratin-studio-zhmerynka.com" />
     <meta
       property="og:image"
-      content="https://keratin-studio-odesa.com/assets/images/og-image.jpg"
+      content="https://keratin-studio-zhmerynka.com/assets/images/og-image.jpg"
     />
     <meta property="og:locale" content="uk_UA" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -33,7 +37,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://keratin-studio-odesa.com/assets/images/og-image.jpg"
+      content="https://keratin-studio-zhmerynka.com/assets/images/og-image.jpg"
     />
 
     <!-- Theme & Color Scheme -->
@@ -257,10 +261,10 @@
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "@id": "https://keratin-studio-odesa.com",
+        "@id": "https://keratin-studio-zhmerynka.com",
         "name": "KERATIN STUDIO",
         "description": "Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Жмеринці",
-        "url": "https://keratin-studio-odesa.com",
+        "url": "https://keratin-studio-zhmerynka.com",
         "telephone": "+380637027770",
         "address": {
           "@type": "PostalAddress",
@@ -280,8 +284,8 @@
           "name": "Жмеринка"
         },
         "sameAs": [
-          "https://instagram.com/keratin_studio_odesa",
-          "https://t.me/keratin_studio_odesa",
+          "https://instagram.com/keratin_studio_zhmerynka",
+          "https://t.me/keratin_studio_zhmerynka",
           "https://wa.me/380637027770"
         ],
         "hasOfferCatalog": {
@@ -498,9 +502,14 @@
           <h2 id="gallery-heading">До / Після • Фото &amp; Відео</h2>
           <p>Реальні роботи майстра. Натисніть, щоб збільшити.</p>
         </div>
-        
-        <div class="gallery-nav" id="galleryNav" role="tablist" aria-label="Фільтр прикладів робіт"></div>
-        
+
+        <div
+          class="gallery-nav"
+          id="galleryNav"
+          role="tablist"
+          aria-label="Фільтр прикладів робіт"
+        ></div>
+
         <div
           class="masonry"
           id="galleryGrid"
@@ -513,20 +522,42 @@
       <section id="testimonials" class="section container">
         <div class="section-head reveal-up">
           <h2>Відгуки клієнток</h2>
-          <p class="muted">Реальні історії про кератин, ботокс і нанопластику у Жмеринці та околицях.</p>
+          <p class="muted">
+            Реальні історії про кератин, ботокс і нанопластику у Жмеринці та
+            околицях.
+          </p>
         </div>
 
         <div class="testimonial-wrap">
           <div class="testimonial-viewport" aria-roledescription="carousel">
-            <div class="testimonial-container" id="testimonialsCarousel" aria-live="polite" aria-atomic="true">
+            <div
+              class="testimonial-container"
+              id="testimonialsCarousel"
+              aria-live="polite"
+              aria-atomic="true"
+            >
               <!-- buildTestimonials() рендерить .testimonial-slide -->
             </div>
           </div>
 
           <div class="testimonial-controls">
-            <button class="btn ghost testimonial-prev" aria-label="Попередній відгук">‹</button>
-            <div class="testimonial-dots" role="tablist" aria-label="Пагінація відгуків"></div>
-            <button class="btn ghost testimonial-next" aria-label="Наступний відгук">›</button>
+            <button
+              class="btn ghost testimonial-prev"
+              aria-label="Попередній відгук"
+            >
+              ‹
+            </button>
+            <div
+              class="testimonial-dots"
+              role="tablist"
+              aria-label="Пагінація відгуків"
+            ></div>
+            <button
+              class="btn ghost testimonial-next"
+              aria-label="Наступний відгук"
+            >
+              ›
+            </button>
           </div>
         </div>
       </section>
@@ -797,34 +828,60 @@
     <!-- Embla Carousel for Testimonials -->
     <script type="module">
       import EmblaCarousel from "https://cdn.jsdelivr.net/npm/embla-carousel@8.0.0/embla-carousel.esm.js";
-      const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const viewport = document.querySelector('.testimonial-viewport');
-      if (viewport){
-        const embla = EmblaCarousel(viewport, { loop:true, align:'center', containScroll:'trimSnaps' });
-        const dots = document.querySelector('.testimonial-dots');
-        const prevBtn = document.querySelector('.testimonial-prev');
-        const nextBtn = document.querySelector('.testimonial-next');
-        function renderDots(){
-          dots.innerHTML = '';
-          embla.scrollSnapList().forEach((_, i)=>{
-            const b = document.createElement('button');
-            b.type='button'; b.className='dot'; b.setAttribute('aria-label',`Перейти до відгуку ${i+1}`);
-            b.addEventListener('click', ()=> embla.scrollTo(i));
+      const prefersReduced = matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      const viewport = document.querySelector(".testimonial-viewport");
+      if (viewport) {
+        const embla = EmblaCarousel(viewport, {
+          loop: true,
+          align: "center",
+          containScroll: "trimSnaps",
+        });
+        const dots = document.querySelector(".testimonial-dots");
+        const prevBtn = document.querySelector(".testimonial-prev");
+        const nextBtn = document.querySelector(".testimonial-next");
+        function renderDots() {
+          dots.innerHTML = "";
+          embla.scrollSnapList().forEach((_, i) => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "dot";
+            b.setAttribute("aria-label", `Перейти до відгуку ${i + 1}`);
+            b.addEventListener("click", () => embla.scrollTo(i));
             dots.appendChild(b);
           });
         }
-        function setActive(){ const s=embla.selectedScrollSnap(); [...dots.children].forEach((d,i)=>d.classList.toggle('is-active',i===s)); }
-        embla.on('init', ()=>{ renderDots(); setActive(); });
-        embla.on('select', setActive);
-        prevBtn?.addEventListener('click', ()=> embla.scrollPrev());
-        nextBtn?.addEventListener('click', ()=> embla.scrollNext());
+        function setActive() {
+          const s = embla.selectedScrollSnap();
+          [...dots.children].forEach((d, i) =>
+            d.classList.toggle("is-active", i === s)
+          );
+        }
+        embla.on("init", () => {
+          renderDots();
+          setActive();
+        });
+        embla.on("select", setActive);
+        prevBtn?.addEventListener("click", () => embla.scrollPrev());
+        nextBtn?.addEventListener("click", () => embla.scrollNext());
         // автоплей з паузами
-        let id=null; const start=()=>{ if(prefersReduced) return; stop(); id=setInterval(()=>embla.scrollNext(), 3500); };
-        const stop=()=>{ if(id) clearInterval(id); id=null; };
-        viewport.addEventListener('mouseenter', stop);
-        viewport.addEventListener('mouseleave', start);
-        document.addEventListener('visibilitychange', ()=> document.hidden?stop():start());
-        embla.on('init', start);
+        let id = null;
+        const start = () => {
+          if (prefersReduced) return;
+          stop();
+          id = setInterval(() => embla.scrollNext(), 3500);
+        };
+        const stop = () => {
+          if (id) clearInterval(id);
+          id = null;
+        };
+        viewport.addEventListener("mouseenter", stop);
+        viewport.addEventListener("mouseleave", start);
+        document.addEventListener("visibilitychange", () =>
+          document.hidden ? stop() : start()
+        );
+        embla.on("init", start);
       }
     </script>
   </body>

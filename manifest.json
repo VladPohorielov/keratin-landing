@@ -134,7 +134,7 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://keratin-studio-odesa.com/manifest.json"
+      "url": "https://keratin-studio-zhmerynka.com/manifest.json"
     }
   ],
   "prefer_related_applications": false,
@@ -148,7 +148,7 @@
   "handle_links": "preferred",
   "scope_extensions": [
     {
-      "origin": "https://keratin-studio-odesa.com"
+      "origin": "https://keratin-studio-zhmerynka.com"
     }
   ]
 }
