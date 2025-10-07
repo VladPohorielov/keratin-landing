@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline - KERATIN STUDIO</title>
+    <style>
+      :root {
+        --brand: oklch(0.82 0.15 120);
+        --brand-2: oklch(0.75 0.15 220);
+        --bg: oklch(0.05 0.02 240);
+        --surface: oklch(0.15 0.02 240);
+        --text: oklch(0.95 0.02 120);
+        --text-muted: oklch(0.65 0.05 120);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .offline-container {
+        max-width: 500px;
+        text-align: center;
+        background: var(--surface);
+        padding: 3rem 2rem;
+        border-radius: 24px;
+        border: 1px solid oklch(0.25 0.05 240);
+        backdrop-filter: blur(20px);
+      }
+
+      .offline-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 2rem;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.8;
+        }
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+      }
+
+      p {
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .retry-button {
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        color: var(--bg);
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin-bottom: 1.5rem;
+      }
+
+      .retry-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px oklch(0.82 0.15 120 / 0.3);
+      }
+
+      .offline-features {
+        list-style: none;
+        text-align: left;
+        margin-top: 2rem;
+      }
+
+      .offline-features li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .offline-features li::before {
+        content: "✓";
+        color: var(--brand);
+        font-weight: bold;
+        margin-right: 0.8rem;
+        font-size: 1.2rem;
+      }
+
+      .connection-status {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: 1rem;
+      }
+
+      .offline {
+        background: oklch(0.6 0.15 0 / 0.1);
+        color: oklch(0.6 0.15 0);
+        border: 1px solid oklch(0.6 0.15 0 / 0.2);
+      }
+
+      .online {
+        background: oklch(0.7 0.15 140 / 0.1);
+        color: oklch(0.7 0.15 140);
+        border: 1px solid oklch(0.7 0.15 140 / 0.2);
+      }
+
+      @media (max-width: 640px) {
+        .offline-container {
+          padding: 2rem 1.5rem;
+        }
+
+        .offline-icon {
+          width: 100px;
+          height: 100px;
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="offline-container">
+      <div class="offline-icon">📶</div>
+
+      <h1>Ви офлайн</h1>
+
+      <p>
+        Схоже, у вас немає підключення до інтернету. Не хвилюйтесь — ви все ще
+        можете переглядати кешовані сторінки!
+      </p>
+
+      <button class="retry-button" onclick="retryConnection()">
+        Спробувати знову
+      </button>
+
+      <div class="connection-status offline" id="status">
+        🔴 Немає підключення
+      </div>
+
+      <ul class="offline-features">
+        <li>Основна інформація про студію</li>
+        <li>Прайс-лист на послуги</li>
+        <li>Контактні дані</li>
+        <li>Галерея робіт (кешовані)</li>
+      </ul>
+    </div>
+
+    <script>
+      let isOnline = navigator.onLine;
+
+      function updateConnectionStatus() {
+        const statusEl = document.getElementById("status");
+        const icon = document.querySelector(".offline-icon");
+
+        if (navigator.onLine) {
+          statusEl.textContent = "🟢 З'єднання відновлено";
+          statusEl.className = "connection-status online";
+          icon.textContent = "✅";
+
+          // Автоматично повертаємось на головну через 2 секунди
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 2000);
+        } else {
+          statusEl.textContent = "🔴 Немає підключення";
+          statusEl.className = "connection-status offline";
+          icon.textContent = "📶";
+        }
+      }
+
+      function retryConnection() {
+        if (navigator.onLine) {
+          window.location.href = "/";
+        } else {
+          // Анімація кнопки при невдалій спробі
+          const button = document.querySelector(".retry-button");
+          button.style.transform = "scale(0.95)";
+          setTimeout(() => {
+            button.style.transform = "";
+          }, 150);
+        }
+      }
+
+      // Слухаємо зміни стану підключення
+      window.addEventListener("online", updateConnectionStatus);
+      window.addEventListener("offline", updateConnectionStatus);
+
+      // Перевіряємо стан при завантаженні
+      updateConnectionStatus();
+
+      // Періодична перевірка підключення
+      setInterval(() => {
+        if (navigator.onLine && !isOnline) {
+          isOnline = true;
+          updateConnectionStatus();
+        } else if (!navigator.onLine && isOnline) {
+          isOnline = false;
+          updateConnectionStatus();
+        }
+      }, 5000);
+    </script>
+  </body>
+</html>

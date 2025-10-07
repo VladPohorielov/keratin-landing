@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KERATIN STUDIO — Одеса | Кератин, Ботокс, Нанопластика</title>
+    <meta
+      name="description"
+      content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Одесі. Сертифіковані майстри, безпечні склади, реальні результати. Запис онлайн."
+    />
+
+    <!-- SEO & Social Meta -->
+    <meta
+      property="og:title"
+      content="KERATIN STUDIO — Одеса | Кератин, Ботокс, Нанопластика"
+    />
+    <meta
+      property="og:description"
+      content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Одесі. Сертифіковані майстри, безпечні склади, реальні результати."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://keratin-studio-odesa.com" />
+    <meta
+      property="og:image"
+      content="https://keratin-studio-odesa.com/assets/images/og-image.jpg"
+    />
+    <meta property="og:locale" content="uk_UA" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="KERATIN STUDIO — Одеса" />
+    <meta
+      name="twitter:description"
+      content="Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Одесі."
+    />
+    <meta
+      name="twitter:image"
+      content="https://keratin-studio-odesa.com/assets/images/og-image.jpg"
+    />
+
+    <!-- Theme & Color Scheme -->
+    <meta name="theme-color" content="#c9ff7b" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+      /* Критичний CSS для першого екрану - жовтень 2025 */
+      :root {
+        --bg: oklch(0.08 0.02 270);
+        --bg-light: oklch(0.98 0.01 90);
+        --card: oklch(0.12 0.03 270);
+        --card-light: oklch(0.95 0.01 90);
+        --text: oklch(0.95 0.02 90);
+        --text-light: oklch(0.15 0.03 270);
+        --muted: oklch(0.65 0.05 240);
+        --muted-light: oklch(0.45 0.05 240);
+        --brand: oklch(0.82 0.15 120);
+        --brand-2: oklch(0.75 0.15 220);
+        --surface: oklch(0.1 0.02 270 / 0.8);
+        --surface-light: oklch(0.97 0.01 90 / 0.8);
+      }
+
+      [data-theme="light"] {
+        --bg: var(--bg-light);
+        --card: var(--card-light);
+        --text: var(--text-light);
+        --muted: var(--muted-light);
+        --surface: var(--surface-light);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark light;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+          system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .container {
+        width: min(1120px, 92%);
+        margin-inline: auto;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        contain: layout;
+        content-visibility: auto;
+      }
+
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        will-change: auto;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          80% 50% at 50% 20%,
+          transparent,
+          oklch(0.05 0.01 270 / 0.7)
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        contain: layout;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4.2vw, 4rem);
+        line-height: 1.1;
+        margin: 0 0 0.875rem;
+        font-weight: 700;
+        text-shadow: 0 0 20px var(--brand);
+        text-wrap: balance;
+      }
+
+      /* Skip Link для доступності */
+      .skip-to-main {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: var(--brand);
+        color: var(--bg);
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 100;
+      }
+
+      .skip-to-main:focus {
+        top: 6px;
+      }
+
+      /* Базові стилі для критичних елементів */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background: var(--surface);
+        border-bottom: 1px solid oklch(0.95 0.02 90 / 0.1);
+        contain: layout;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.625rem;
+        padding: 0.75rem 1.125rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--brand), var(--brand-2));
+        color: var(--bg);
+        font-weight: 700;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        will-change: transform;
+        text-shadow: 0 0 10px color-mix(in oklch, var(--brand) 50%, transparent);
+      }
+
+      .btn:hover,
+      .btn:focus-visible {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 40px
+          color-mix(in oklch, var(--brand) 30%, transparent);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .btn {
+          transition: none;
+          will-change: auto;
+        }
+        .btn:hover,
+        .btn:focus-visible {
+          transform: none;
+        }
+      }
+    </style>
+
+    <!-- Performance optimizations -->
+    <link
+      rel="preload"
+      href="css/styles.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="css/styles.css" /></noscript>
+
+    <!-- Шрифти з оптимізацією -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap"
+    /></noscript>
+
+    <!-- Preload критичних ресурсів -->
+    <link
+      rel="preload"
+      href="assets/media/keratin-hero.mp4"
+      as="video"
+      type="video/mp4"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="assets/images/hero-poster.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link rel="preload" href="content.json" as="fetch" crossorigin />
+
+    <!-- Structured Data - LocalBusiness -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://keratin-studio-odesa.com",
+        "name": "KERATIN STUDIO",
+        "description": "Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Одесі",
+        "url": "https://keratin-studio-odesa.com",
+        "telephone": "+380637027770",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Одеса",
+          "addressCountry": "UA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "46.4825",
+          "longitude": "30.7233"
+        },
+        "openingHours": "Mo-Su 09:00-20:00",
+        "priceRange": "₴₴",
+        "areaServed": "Жмеринка",
+        "serviceArea": {
+          "@type": "City",
+          "name": "Жмеринка"
+        },
+        "sameAs": [
+          "https://instagram.com/keratin_studio_odesa",
+          "https://t.me/keratin_studio_odesa",
+          "https://wa.me/380637027770"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Послуги по догляду за волоссям",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Кератинове вирівнювання",
+                "description": "Довготривала гладкість та глянець без пухнастості"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "minPrice": "1800",
+                "maxPrice": "2900",
+                "priceCurrency": "UAH"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Ботокс для волосся",
+                "description": "Відновлення щільності, блиску та еластичності"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "minPrice": "1400",
+                "maxPrice": "2400",
+                "priceCurrency": "UAH"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Нанопластика",
+                "description": "Максимальна керованість і дзеркальний блиск"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "minPrice": "2200",
+                "maxPrice": "3400",
+                "priceCurrency": "UAH"
+              }
+            }
+          ]
+        },
+        "sameAs": [
+          "https://instagram.com/your_salon",
+          "https://t.me/your_salon"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="page-grad" aria-hidden="true"></div>
+
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a
+          href="#top"
+          class="logo"
+          id="brandName"
+          aria-label="KERATIN STUDIO - повернутися на початок"
+          >KERATIN STUDIO</a
+        >
+
+        <!-- Theme Switcher -->
+        <button
+          class="theme-toggle"
+          aria-label="Перемкнути тему"
+          title="Перемкнути світлу/темну тему"
+        >
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+
+        <nav class="nav" role="navigation" aria-label="Основна навігація">
+          <a href="#services">Послуги</a>
+          <a href="#gallery">Роботи</a>
+          <a href="#about">Про мене</a>
+          <a href="#testimonials">Відгуки</a>
+          <a href="#certs">Сертифікати</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact" class="btn small">Записатися</a>
+        </nav>
+
+        <button
+          class="hamburger"
+          aria-label="Відкрити меню"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <!-- Mobile Menu -->
+        <nav
+          class="mobile-menu"
+          id="mobile-menu"
+          role="navigation"
+          aria-label="Мобільна навігація"
+          hidden
+        >
+          <a href="#services">Послуги</a>
+          <a href="#gallery">Роботи</a>
+          <a href="#about">Про мене</a>
+          <a href="#testimonials">Відгуки</a>
+          <a href="#certs">Сертифікати</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact" class="btn">Записатися</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" role="main">
+      <!-- Hero -->
+      <section class="hero" id="top" aria-labelledby="hero-headline">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          id="heroVideo"
+          poster="assets/images/hero-poster.webp"
+          preload="metadata"
+          width="1920"
+          height="1080"
+          aria-hidden="true"
+        >
+          <source src="assets/media/keratin-hero.webm" type="video/webm" />
+          <source src="assets/media/keratin-hero.mp4" type="video/mp4" />
+          Ваш браузер не підтримує відео.
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="container hero-content reveal-up">
+          <h1 id="heroHeadline">
+            Ідеально гладке та блискуче волосся за 2–3 години
+          </h1>
+          <p id="heroSub">
+            Кератинове вирівнювання, ботокс та нанопластика преміум‑класу.
+            Безпечні склади, сертифікати і WOW‑результат.
+          </p>
+          <div class="cta-row">
+            <a href="#contact" class="btn" id="ctaPrimary">Записатися</a>
+            <a href="#gallery" class="btn ghost" id="ctaSecondary"
+              >Дивитися роботи</a
+            >
+          </div>
+          <div class="hero-trust">
+            <span>Сертифікати • Безпечні склади • 1000+ щасливих клієнток</span>
+          </div>
+        </div>
+        <a
+          class="scroll-down"
+          href="#services"
+          aria-label="Прокрутити до послуг"
+        >
+          <span aria-hidden="true">▼</span>
+        </a>
+      </section>
+
+      <!-- About Master -->
+      <section id="about" class="section container about">
+        <div class="about-grid">
+          <figure class="about-media">
+            <img id="aboutPhoto" alt="Майстер — Альона Бурдовська" width="900" height="1200" loading="lazy" decoding="async">
+          </figure>
+          <article class="about-content">
+            <h2 id="aboutTitle">Про майстра</h2>
+            <div id="aboutBody"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Services / Pricing -->
+      <section
+        id="services"
+        class="section container"
+        aria-labelledby="services-heading"
+      >
+        <div class="section-head reveal-up">
+          <h2 id="services-heading">Послуги та прайс</h2>
+          <p>
+            Обирайте потрібну процедуру та довжину — ціни прозорі, результат
+            передбачуваний.
+          </p>
+        </div>
+        <div class="services-grid" id="servicesGrid" role="list"></div>
+      </section>
+
+      <!-- SEO Content -->
+      <section id="seo" class="section container seo-section">
+        <div id="seoMount" class="seo-grid"></div>
+      </section>
+
+      <!-- Gallery -->
+      <section
+        id="gallery"
+        class="section container"
+        aria-labelledby="gallery-heading"
+      >
+        <div class="section-head reveal-up">
+          <h2 id="gallery-heading">До / Після • Фото &amp; Відео</h2>
+          <p>Реальні роботи майстра. Натисніть, щоб збільшити.</p>
+        </div>
+        <div
+          class="masonry"
+          id="galleryGrid"
+          role="list"
+          aria-label="Галерея робіт"
+        ></div>
+      </section>
+
+      <!-- Testimonials -->
+      <section
+        id="testimonials"
+        class="section container"
+        aria-labelledby="testimonials-heading"
+      >
+        <div class="section-head reveal-up">
+          <h2 id="testimonials-heading">Відгуки клієнток</h2>
+        </div>
+        <div
+          class="carousel"
+          id="testimonialsCarousel"
+          role="list"
+          aria-label="Відгуки клієнтів"
+        ></div>
+      </section>
+
+      <!-- Certificates -->
+      <section
+        id="certs"
+        class="section container"
+        aria-labelledby="certs-heading"
+      >
+        <div class="section-head reveal-up">
+          <h2 id="certs-heading">Сертифікати</h2>
+        </div>
+        <div
+          class="certs strip"
+          id="certsStrip"
+          role="list"
+          aria-label="Сертифікати майстра"
+        ></div>
+      </section>
+
+      <!-- Process -->
+      <section
+        id="process"
+        class="section container"
+        aria-labelledby="process-heading"
+      >
+        <div class="section-head reveal-up">
+          <h2 id="process-heading">Як проходить процедура</h2>
+        </div>
+        <div class="steps" id="processSteps" role="list"></div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="section container" aria-labelledby="faq-heading">
+        <div class="section-head reveal-up">
+          <h2 id="faq-heading">Питання та відповіді</h2>
+        </div>
+        <div class="accordion" id="faqList" role="list"></div>
+      </section>
+
+      <!-- Contact / Booking -->
+      <section
+        id="contact"
+        class="section container"
+        aria-labelledby="contact-heading"
+      >
+        <div class="contact-card reveal-up">
+          <div class="contact-info">
+            <h2 id="contact-heading">Запишіться на консультацію</h2>
+            <p>
+              Залиште номер — ми зв'яжемося у зручному месенджері, допоможемо
+              обрати процедуру та догляд.
+            </p>
+            <ul class="contact-list" id="contactList"></ul>
+          </div>
+          <form
+            class="form"
+            id="contactForm"
+            action="https://formspree.io/f/xjkvygwq"
+            method="POST"
+            novalidate
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="Нова заявка з сайту KERATIN STUDIO"
+            />
+            <input type="hidden" name="_timestamp" id="form-timestamp" />
+
+            <!-- Honeypot для спам-захисту -->
+            <input
+              type="text"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+              style="position: absolute; left: -5000px; opacity: 0"
+              aria-hidden="true"
+            />
+
+            <label for="contact-name">
+              Ваше ім'я *
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                required
+                placeholder="Ім'я"
+                autocomplete="given-name"
+                aria-describedby="name-error"
+                data-touched="false"
+              />
+              <div class="error" id="name-error" aria-live="polite"></div>
+            </label>
+
+            <label for="contact-phone">
+              Номер телефону *
+              <input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                required
+                inputmode="tel"
+                placeholder="+380…"
+                autocomplete="tel"
+                pattern="^\\+?\\d[\\d\\s\\-\\(\\)]{7,}$"
+                aria-describedby="phone-error"
+                data-touched="false"
+              />
+              <div class="error" id="phone-error" aria-live="polite"></div>
+            </label>
+
+            <label for="contact-message">
+              Коментар
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="4"
+                placeholder="Кератин/Ботокс/Нанопластика, довжина, зручний час"
+                aria-describedby="message-error"
+                data-touched="false"
+              >
+              </textarea>
+              <div class="error" id="message-error" aria-live="polite"></div>
+            </label>
+
+            <button type="submit" class="btn full" id="submit-btn" disabled>
+              <span class="btn-text">Відправити</span>
+              <span class="btn-spinner" aria-hidden="true">⟳</span>
+            </button>
+
+            <div class="form-status" id="form-status" aria-live="polite"></div>
+
+            <small
+              >Натискаючи «Відправити», ви погоджуєтесь з
+              <a href="#privacy" target="_blank" rel="noopener"
+                >обробкою персональних даних</a
+              >.</small
+            >
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-columns">
+          <div class="footer-col">
+            <div class="logo" id="brandNameFooter">KERATIN STUDIO</div>
+            <p class="muted">© <span id="year"></span>. Усі права захищено.</p>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Контакти</h4>
+            <div id="footerContacts"></div>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Швидкі посилання</h4>
+            <nav role="navigation" aria-label="Додаткова навігація">
+              <a href="#about">Про майстра</a>
+              <a href="#services">Послуги</a>
+              <a href="#gallery">Роботи</a>
+              <a href="#faq">Відгуки</a>
+              <a href="#contact">Контакти</a>
+            </nav>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Соцмережі</h4>
+            <div id="footerSocial"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .catch(() => console.log("SW registration failed"));
+        });
+      }
+    </script>
+
+    <script src="js/app.js" type="module" defer></script>
+
+    <!-- Modern Animations & Smooth Scroll -->
+    <script type="module">
+      import {
+        animate,
+        spring,
+      } from "https://cdn.jsdelivr.net/npm/motion@11/+esm";
+      import Lenis from "https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/+esm";
+
+      // Smooth scroll з Lenis
+      const lenis = new Lenis({
+        smoothWheel: true,
+        syncTouch: true,
+        lerp: 0.1,
+        wheelMultiplier: 0.7,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 3D Hover ефекти для карток
+      document.addEventListener("DOMContentLoaded", () => {
+        // Перевірка prefers-reduced-motion
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        if (!prefersReducedMotion) {
+          const cards = document.querySelectorAll(".card");
+          const hoverOptions = {
+            duration: 0.35,
+            easing: spring({ stiffness: 300, damping: 30 }),
+          };
+
+          cards.forEach((card) => {
+            // Додаємо клас для кращого CSS керування
+            card.classList.add("js-enhanced");
+
+            card.addEventListener("pointerenter", () => {
+              animate(
+                card,
+                {
+                  transform: "translateY(-6px) translateZ(0) scale(1.02)",
+                },
+                hoverOptions
+              );
+            });
+
+            card.addEventListener("pointerleave", () => {
+              animate(
+                card,
+                {
+                  transform: "translateY(0) translateZ(0) scale(1)",
+                },
+                hoverOptions
+              );
+            });
+          });
+        }
+
+        // Scroll-driven animations підтримка
+        if (CSS.supports("animation-timeline", "scroll()")) {
+          document.documentElement.style.setProperty(
+            "--scroll-animations",
+            "supported"
+          );
+        } else {
+          // Fallback на IntersectionObserver (вже реалізовано в app.js)
+          document.documentElement.style.setProperty(
+            "--scroll-animations",
+            "fallback"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

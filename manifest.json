@@ -1,0 +1,154 @@
+{
+  "name": "KERATIN STUDIO — Одеса",
+  "short_name": "KERATIN STUDIO",
+  "description": "Професійне кератинове вирівнювання, ботокс та нанопластика волосся в Одесі. Сертифіковані майстри, безпечні склади, реальні результати.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#c9ff7b",
+  "background_color": "#0b0b0f",
+  "orientation": "portrait-primary",
+  "lang": "uk",
+  "dir": "ltr",
+  "categories": ["beauty", "lifestyle", "health"],
+  "icons": [
+    {
+      "src": "/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Головна сторінка KERATIN STUDIO"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Мобільна версія сайту"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Записатися на процедуру",
+      "short_name": "Запис",
+      "description": "Швидкий запис на кератин, ботокс або нанопластику",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/shortcut-booking.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Переглянути роботи",
+      "short_name": "Галерея",
+      "description": "Фото та відео результатів процедур",
+      "url": "/#gallery",
+      "icons": [
+        {
+          "src": "/shortcut-gallery.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Прайс-лист",
+      "short_name": "Ціни",
+      "description": "Актуальні ціни на всі послуги",
+      "url": "/#services",
+      "icons": [
+        {
+          "src": "/shortcut-prices.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Контакти",
+      "short_name": "Контакти",
+      "description": "Телефон, адреса, соціальні мережі",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/shortcut-contact.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://keratin-studio-odesa.com/manifest.json"
+    }
+  ],
+  "prefer_related_applications": false,
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "handle_links": "preferred",
+  "scope_extensions": [
+    {
+      "origin": "https://keratin-studio-odesa.com"
+    }
+  ]
+}
