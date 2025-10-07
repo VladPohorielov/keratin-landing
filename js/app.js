@@ -164,40 +164,20 @@ function buildServices(){
 
 function buildAbout(){
   const a = state.data.about; 
-  if(!a) {
-    console.warn('About data not found in content.json');
-    return;
-  }
+  if(!a) return;
   
-  console.log('Building about section with:', a);
+  const photo = $('#aboutPhoto');
+  const title = $('#aboutTitle');
+  const body = $('#aboutBody');
   
-  const photo = document.getElementById('aboutPhoto');
-  const title = document.getElementById('aboutTitle');
-  const body = document.getElementById('aboutBody');
-  
-  if(photo) {
-    photo.src = a.photo;
-    console.log('Set photo src:', a.photo);
-  } else {
-    console.warn('aboutPhoto element not found');
-  }
-  
-  if(title) {
-    title.textContent = a.title;
-    console.log('Set title:', a.title);
-  } else {
-    console.warn('aboutTitle element not found');
-  }
-  
+  if(photo) photo.src = a.photo;
+  if(title) title.textContent = a.title;
   if(body && a.html) {
-    // sanitize
+    // sanitize HTML
     const t = document.createElement('template'); 
     t.innerHTML = a.html; 
     t.content.querySelectorAll('script').forEach(s=>s.remove());
     body.innerHTML = t.innerHTML;
-    console.log('Set body HTML');
-  } else {
-    console.warn('aboutBody element not found or no HTML content');
   }
 }
 
